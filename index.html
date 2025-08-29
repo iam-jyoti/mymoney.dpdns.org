@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Investment Calculators | SIP, Lumpsum, SWP, FIRE</title>
+    <meta name="description" content="Free financial calculators for investment planning. Calculate SIP, Lumpsum, SWP, FIRE, and more to plan your investments and achieve your financial goals.">
+    <meta name="keywords" content="financial calculator, investment calculator, sip calculator, lumpsum calculator, swp calculator, fire calculator, retirement calculator, savings plan calculator">
+    <meta property="og:title" content="Free Financial Calculators | SIP, Lumpsum, SWP, FIRE">
+    <meta property="og:description" content="Comprehensive suite of free financial calculators for investors. Calculate SIP, Lumpsum, SWP, FIRE, and more to plan your investments and achieve your financial goals.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mymoney.dpdns.org">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/calculator.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3918807989423125"
+     crossorigin="anonymous"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-3918807989423125",
+            enable_page_level_ads: true
+        });
+    </script>
+</head>
+<body>
+    <header class="container-fluid text-white text-center py-3 sticky-top">
+        <h1><i class="fas fa-calculator me-3"></i>InvestCalc</h1>
+        <p class="mb-3 fs-5 fw-light">Professional Financial Planning Tools for Smart Investors</p>
+        <div class="d-flex justify-content-center overflow-auto">
+            <ul class="nav nav-tabs flex-nowrap" id="calculator-tabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="sip-tab" data-bs-toggle="tab" data-bs-target="#sip-calculator" type="button" role="tab" aria-controls="sip-calculator" aria-selected="true">SIP</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="lumpsum-tab" data-bs-toggle="tab" data-bs-target="#lumpsum-calculator" type="button" role="tab" aria-controls="lumpsum-calculator" aria-selected="false">Lumpsum</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="sip-target-tab" data-bs-toggle="tab" data-bs-target="#sip-target-calculator" type="button" role="tab" aria-controls="sip-target-calculator" aria-selected="false">SIP Target</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="swp-tab" data-bs-toggle="tab" data-bs-target="#swp-calculator" type="button" role="tab" aria-controls="swp-calculator" aria-selected="false">SWP</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="fire-tab" data-bs-toggle="tab" data-bs-target="#fire-calculator" type="button" role="tab" aria-controls="fire-calculator" aria-selected="false">FIRE</button>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="container mt-4">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="tab-content" id="calculator-panels">
+                    <div class="calculator-panel active" id="sip-calculator" role="tabpanel" aria-labelledby="sip-tab">
+                        <div class="calculator-container">
+                            <div class="input-section">
+                                <h2>SIP Calculator</h2>
+                                <form id="sip-form">
+                                    <div class="mb-3">
+                                        <label for="sip-amount" class="form-label" id="sip-amount-label">Monthly Investment</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">$</span>
+                                            <input type="text" class="form-control format-number has-slider" id="sip-amount" value="200" data-range-min="100" data-range-max="10000" data-range-step="50">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="sip-cadence" class="form-label">Contribution Frequency</label>
+                                        <select class="form-select" id="sip-cadence">
+                                            <option value="monthly" selected>Monthly</option>
+                                            <option value="weekly">Weekly</option>
+                                            <option value="quarterly">Quarterly</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="sip-duration" class="form-label">Investment Period</label>
+                                        <div class="input-group">
+                                            <input type="number" class="form-control has-slider" id="sip-duration" value="25" data-range-min="1" data-range-max="40" data-range-step="1">
+                                            <span class="input-group-text">Years</span>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="sip-return" class="form-label">Expected Annual Return</label>
+                                        <div class="input-group">
+                                            <input type="number" class="form-control has-slider" id="sip-return" value="8.5" data-range-min="1" data-range-max="18" data-range-step="0.5">
+                                            <span class="input-group-text">%</span>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Annual Step-up</label>
+                                        <div class="row g-2">
+                                            <div class="col-md-5">
+                                                <select class="form-select" id="sip-step-up-mode">
+                                                    <option value="percent" selected>Percentage</option>
+                                                    <option value="fixed">Fixed Amount</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <div class="input-group">
+                                                    <input type="number" class="form-control has-slider" id="sip-step-up" value="0" data-range-min="0" data-range-max="20" data-range-step="1">
+                                                    <span class="input-group-text" id="sip-step-up-unit">%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="sip-existing-investment" class="form-label">Existing Investments</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">$</span>
+                                            <input type="text" class="form-control format-number has-slider" id="sip-existing-investment" value="0" data-range-min="0" data-range-max="100000" data-range-step="1000">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="sip-inflation-rate" class="form-label text-danger">Expected Inflation Rate</label>
+                                        <div class="input-group">
+                                            <input type="number" class="form-control has-slider" id="sip-inflation-rate" value="2" data-range-min="0" data-range-max="12" data-range-step="0.5">
+                                            <span class="input-group-text">%</span>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100">Calculate</button>
+                                    <button type="button" class="btn btn-outline-secondary w-100 mt-2 btn-export-png" data-target="sip-calculator">Export PNG</button>
+                                </form>
+                            </div>
+                            <div class="results-section">
+                                <div class="results-highlight">
+                                    <div class="highlight-box">
+                                        <h3>Invested Amount</h3>
+                                        <p id="sip-invested">$0</p>
+                                    </div>
+                                    <div class="highlight-box">
+                                        <h3>Wealth Gained</h3>
+                                        <p id="sip-wealth-gained">$0</p>
+                                    </div>
+                                    <div class="highlight-box">
+                                        <h3>Future Value</h3>
+                                        <p id="sip-future-value">$0</p>
+                                    </div>
+                                    <div class="highlight-box">
+                                        <h3>Future Value (Today's Terms)</h3>
+                                        <p id="sip-real-future-value">$0</p>
+                                    </div>
+                                </div>
+                                <canvas id="sip-chart"></canvas>
+                                <div class="educational-content">
+                                    <p><strong>SIP (Systematic Investment Plan):</strong> Regular fixed investments in funds/stocks regardless of market conditions.</p>
+                                    <ul>
+                                        <li>Dollar cost averaging reduces market timing risk and volatility impact</li>
+                                        <li>Compounding accelerates wealth creation; step-up investments counter inflation</li>
+                                        <li>Starting early maximizes time advantage and reduces required amounts</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calculator-panel" id="lumpsum-calculator" role="tabpanel" aria-labelledby="lumpsum-tab">
+                        <div class="calculator-container">
+                            <div class="input-section">
+                                <h2>Lumpsum Calculator</h2>
+                                <form id="lumpsum-form">
+                                    <div class="mb-3">
+                                        <label for="lumpsum-amount" class="form-label">Total Investment</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">$</span>
+                                            <input type="text" class="form-control format-number has-slider" id="lumpsum-amount" value="10,000" data-range-min="1000" data-range-max="1000000" data-range-step="1000">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="lumpsum-duration" class="form-label">Investment Period</label>
+                                        <div class="input-group">
+                                            <input type="number" class="form-control has-slider" id="lumpsum-duration" value="10" data-range-min="1" data-range-max="40" data-range-step="1">
+                                            <span class="input-group-text">Years</span>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="lumpsum-return" class="form-label">Expected Annual Return</label>
+                                        <div class="input-group">
+                                            <input type="number" class="form-control has-slider" id="lumpsum-return" value="8.5" data-range-min="1" data-range-max="18" data-range-step="0.5">
+                                            <span class="input-group-text">%</span>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="lumpsum-inflation-rate" class="form-label text-danger">Expected Inflation Rate</label>
+                                        <div class="input-group">
+                                            <input type="number" class="form-control has-slider" id="lumpsum-inflation-rate" value="2" data-range-min="0" data-range-max="12" data-range-step="0.5">
+                                            <span class="input-group-text">%</span>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100">Calculate</button>
+                                    <button type="button" class="btn btn-outline-secondary w-100 mt-2 btn-export-png" data-target="lumpsum-calculator">Export PNG</button>
+                                </form>
+                            </div>
+                            <div class="results-section">
+                                <div class="results-highlight">
+                                    <div class="highlight-box">
+                                        <h3>Invested Amount</h3>
+                                        <p id="lumpsum-invested">$0</p>
+                                    </div>
+                                    <div class="highlight-box">
+                                        <h3>Wealth Gained</h3>
+                                        <p id="lumpsum-wealth-gained">$0</p>
+                                    </div>
+                                    <div class="highlight-box">
+                                        <h3>Future Value</h3>
+                                        <p id="lumpsum-future-value">$0</p>
+                                    </div>
+                                    <div class="highlight-box">
+                                        <h3>Future Value (Today's Terms)</h3>
+                                        <p id="lumpsum-real-future-value">$0</p>
+                                    </div>
+                                </div>
+                                <canvas id="lumpsum-chart"></canvas>
+                                <div class="educational-content">
+                                    <p><strong>Lumpsum Investment:</strong> One-time large investment deployed immediately.</p>
+                                    <ul>
+                                        <li>Benefits from immediate full compounding but carries higher timing risk</li>
+                                        <li>Market timing is difficult; inflation erodes purchasing power over time</li>
+                                        <li>Higher returns compound exponentially, creating significant long-term impact</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calculator-panel" id="sip-target-calculator" role="tabpanel" aria-labelledby="sip-target-tab">
+                        <div class="calculator-container">
+                            <div class="input-section">
+                                <h2>SIP Target Calculator</h2>
+                                <form id="sip-target-form">
+                                    <div class="mb-3">
+                                        <label for="sip-target-amount" class="form-label">Target Amount</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">$</span>
+                                            <input type="text" class="form-control format-number has-slider" id="sip-target-amount" value="500,000" data-range-min="10000" data-range-max="10000000" data-range-step="10000">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="sip-target-duration" class="form-label">Time Horizon</label>
+                                        <div class="input-group">
+                                            <input type="number" class="form-control has-slider" id="sip-target-duration" value="30" data-range-min="1" data-range-max="40" data-range-step="1">
+                                            <span class="input-group-text">Years</span>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="sip-target-return" class="form-label">Expected Annual Return</label>
+                                        <div class="input-group">
+                                            <input type="number" class="form-control has-slider" id="sip-target-return" value="8.5" data-range-min="1" data-range-max="18" data-range-step="0.5">
+                                            <span class="input-group-text">%</span>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="sip-target-cadence" class="form-label">Contribution Frequency</label>
+                                        <select class="form-select" id="sip-target-cadence">
+                                            <option value="monthly" selected>Monthly</option>
+                                            <option value="weekly">Weekly</option>
+                                            <option value="quarterly">Quarterly</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="sip-target-existing" class="form-label">Existing Investments</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">$</span>
+                                            <input type="text" class="form-control format-number has-slider" id="sip-target-existing" value="10,000" data-range-min="0" data-range-max="1000000" data-range-step="5000">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="sip-target-inflation-rate" class="form-label text-danger">Expected Inflation Rate</label>
+                                        <div class="input-group">
+                                            <input type="number" class="form-control has-slider" id="sip-target-inflation-rate" value="2" data-range-min="0" data-range-max="12" data-range-step="0.5">
+                                            <span class="input-group-text">%</span>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100">Calculate</button>
+                                    <button type="button" class="btn btn-outline-secondary w-100 mt-2 btn-export-png" data-target="sip-target-calculator">Export PNG</button>
+                                </form>
+                            </div>
+                            <div class="results-section">
+                                <div class="results-highlight">
+                                    <div class="highlight-box">
+                                        <h3>Required Monthly SIP</h3>
+                                        <p id="sip-target-required-sip">$0</p>
+                                    </div>
+                                    <div class="highlight-box">
+                                        <h3>Total Investment</h3>
+                                        <p id="sip-target-total-investment">$0</p>
+                                    </div>
+                                    <div class="highlight-box">
+                                        <h3>Future Value of Existing Investment</h3>
+                                        <p id="sip-target-future-existing">$0</p>
+                                    </div>
+                                    <div class="highlight-box">
+                                        <h3>Target Achievement</h3>
+                                        <p id="sip-target-achievement">0 years 0 months</p>
+                                    </div>
+                                </div>
+                                <canvas id="sip-target-chart"></canvas>
+                                <div class="educational-content">
+                                    <p><strong>SIP Target Planning:</strong> Calculate required SIP amount to reach specific financial goals.</p>
+                                    <ul>
+                                        <li>Earlier start dates dramatically reduce required monthly investments</li>
+                                        <li>Inflation increases future costs; higher returns reduce required contributions</li>
+                                        <li>Existing investments provide compounding head start toward goals</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calculator-panel" id="swp-calculator" role="tabpanel" aria-labelledby="swp-tab">
+                        <div class="calculator-container">
+                            <div class="input-section">
+                                <h2>SWP Calculator</h2>
+                                <form id="swp-form">
+                                    <div class="mb-3">
+                                        <label for="swp-initial-investment" class="form-label">Retirement Corpus</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">$</span>
+                                            <input type="text" class="form-control format-number has-slider" id="swp-initial-investment" value="500,000" data-range-min="10000" data-range-max="10000000" data-range-step="10000">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="swp-monthly-withdrawal" class="form-label" id="swp-withdrawal-label">Monthly Withdrawal</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">$</span>
+                                            <input type="text" class="form-control format-number has-slider" id="swp-monthly-withdrawal" value="2,000" data-range-min="100" data-range-max="50000" data-range-step="100">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="swp-cadence" class="form-label">Withdrawal Frequency</label>
+                                        <select class="form-select" id="swp-cadence">
+                                            <option value="monthly" selected>Monthly</option>
+                                            <option value="weekly">Weekly</option>
+                                            <option value="quarterly">Quarterly</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="swp-annual-return" class="form-label">Expected Annual Return</label>
+                                        <div class="input-group">
+                                            <input type="number" class="form-control has-slider" id="swp-annual-return" value="4" data-range-min="0" data-range-max="15" data-range-step="0.5">
+                                            <span class="input-group-text">%</span>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="swp-inflation-rate" class="form-label text-danger">Expected Inflation Rate</label>
+                                        <div class="input-group">
+                                            <input type="number" class="form-control has-slider" id="swp-inflation-rate" value="2" data-range-min="0" data-range-max="10" data-range-step="0.5">
+                                            <span class="input-group-text">%</span>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100">Calculate</button>
+                                    <button type="button" class="btn btn-outline-secondary w-100 mt-2 btn-export-png" data-target="swp-calculator">Export PNG</button>
+                                </form>
+                            </div>
+                            <div class="results-section">
+                                <div class="results-highlight">
+                                    <div class="highlight-box">
+                                        <h3>Portfolio Longevity (Years)</h3>
+                                        <p id="swp-longevity">0</p>
+                                    </div>
+                                    <div class="highlight-box">
+                                        <h3>Total Withdrawals</h3>
+                                        <p id="swp-total-withdrawals">$0</p>
+                                    </div>
+                                    <div class="highlight-box">
+                                        <h3>Remaining Portfolio Value</h3>
+                                        <p id="swp-remaining-value">$0</p>
+                                    </div>
+                                </div>
+                                <canvas id="swp-chart"></canvas>
+                                <div class="educational-content">
+                                    <p><strong>SWP (Systematic Withdrawal Plan):</strong> Regular withdrawals from investment corpus for income.</p>
+                                    <ul>
+                                        <li>Withdrawal rate determines how long your retirement corpus will last</li>
+                                        <li>Inflation increases withdrawal amounts over time, depleting corpus faster</li>
+                                        <li>Conservative withdrawal rates (3-4%) improve long-term sustainability</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calculator-panel" id="fire-calculator" role="tabpanel" aria-labelledby="fire-tab">
+                        <div class="calculator-container">
+                            <div class="input-section">
+                                <h2>FIRE Calculator</h2>
+                                <form id="fire-form">
+                                    <div class="mb-3">
+                                        <label for="fire-current-age" class="form-label">Current Age</label>
+                                        <div class="input-group">
+                                            <input type="number" class="form-control has-slider" id="fire-current-age" value="25" data-range-min="18" data-range-max="70" data-range-step="1">
+                                            <span class="input-group-text">Years</span>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="fire-annual-income" class="form-label">Annual Income</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">$</span>
+                                            <input type="text" class="form-control format-number has-slider" id="fire-annual-income" value="60,000" data-range-min="20000" data-range-max="500000" data-range-step="5000">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="fire-annual-expenses" class="form-label">Annual Expenses</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">$</span>
+                                            <input type="text" class="form-control format-number has-slider" id="fire-annual-expenses" value="30,000" data-range-min="10000" data-range-max="200000" data-range-step="2000">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="fire-current-savings" class="form-label">Current Savings</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">$</span>
+                                            <input type="text" class="form-control format-number has-slider" id="fire-current-savings" value="10,000" data-range-min="0" data-range-max="1000000" data-range-step="5000">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="fire-expected-return" class="form-label">Expected Return</label>
+                                        <div class="input-group">
+                                            <input type="number" class="form-control has-slider" id="fire-expected-return" value="8.5" data-range-min="0" data-range-max="15" data-range-step="0.5">
+                                            <span class="input-group-text">%</span>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="fire-withdrawal-rate" class="form-label">Withdrawal Rate</label>
+                                        <div class="input-group">
+                                            <input type="number" class="form-control has-slider" id="fire-withdrawal-rate" value="4" data-range-min="3" data-range-max="6" data-range-step="0.1">
+                                            <span class="input-group-text">%</span>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100">Calculate</button>
+                                </form>
+                            </div>
+                            <div class="results-section">
+                                <div class="results-highlight">
+                                    <div class="highlight-box">
+                                        <h3>Years to FIRE</h3>
+                                        <p id="fire-years-to-fire">0</p>
+                                    </div>
+                                    <div class="highlight-box">
+                                        <h3>FIRE Number</h3>
+                                        <p id="fire-number">$0</p>
+                                    </div>
+                                    <div class="highlight-box">
+                                        <h3>Savings Rate</h3>
+                                        <p id="fire-savings-rate">0%</p>
+                                    </div>
+                                </div>
+                                <canvas id="fire-chart"></canvas>
+                                <div class="educational-content">
+                                    <p><strong>FIRE (Financial Independence, Retire Early):</strong> Accumulate enough wealth to cover expenses without working.</p>
+                                    <ul>
+                                        <li>Higher savings rates dramatically reduce time to achieve FIRE</li>
+                                        <li>4% rule suggests needing 25x annual expenses invested safely</li>
+                                        <li>Lower expenses more impactful than higher income for FIRE timeline</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-3">
+                <div class="adsense-placeholder adsense-sidebar mb-4">
+                    <i class="fas fa-ad"></i><br>
+                    Advertisement<br>
+                    300x250
+                </div>
+                
+                <div class="adsense-placeholder adsense-sidebar">
+                    <i class="fas fa-ad"></i><br>
+                    Advertisement<br>
+                    300x600
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="adsense-placeholder adsense-large">
+                    <i class="fas fa-ad"></i> Advertisement Space - 970x250 Large Banner
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center py-3 mt-4 border-top">
+        <p class="mb-0 text-muted small">© 2025 InvestCalc - Smart financial planning tools for informed investment decisions.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/calculators/sip.js"></script>
+    <script src="js/calculators/lumpsum.js"></script>
+    <script src="js/calculators/sipTarget.js"></script>
+    <script src="js/calculators/swp.js"></script>
+    <script src="js/calculators/fire.js"></script>
+    <script src="js/utils/finance.js"></script>
+    <script src="js/utils/formatters.js"></script>
+    <script src="js/utils/validators.js"></script>
+    <script src="js/chart-manager.js"></script>
+</body>
+</html>

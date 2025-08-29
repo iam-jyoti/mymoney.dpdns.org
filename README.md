@@ -1,1 +1,1 @@
-# mymoney.dpdns.org
+# Read Licence.md

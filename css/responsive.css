@@ -1,0 +1,234 @@
+/* Enhanced Mobile-first Responsive Design */
+
+.nav-tabs .nav-link {
+    white-space: nowrap;
+    min-width: fit-content;
+}
+
+.nav-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.nav-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+@media (max-width: 1200px) {
+    .calculator-container {
+        gap: 2rem;
+        padding: 2rem;
+    }
+    
+    .results-highlight {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+}
+
+@media (max-width: 992px) {
+    .calculator-container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        padding: 2.5rem;
+    }
+    
+    .adsense-sidebar {
+        order: -1;
+        margin-bottom: 2.5rem;
+        min-height: 200px;
+        position: static;
+    }
+    
+    header h1 {
+        font-size: 2.5rem;
+    }
+    
+    header {
+        padding: 2.5rem 1rem 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .results-highlight {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 1.25rem;
+    }
+    
+    .input-section h2 {
+        font-size: 1.75rem;
+    }
+    
+    .btn-primary {
+        width: 100%;
+        padding: 1.25rem;
+        font-size: 1rem;
+    }
+    
+    .highlight-box {
+        padding: 2rem 1.5rem;
+    }
+    
+    .highlight-box p {
+        font-size: 1.25rem;
+    }
+    
+    .nav-tabs .nav-link {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.9rem;
+    }
+    
+    .adsense-placeholder {
+        padding: 2rem;
+        margin: 2rem 0;
+    }
+    
+    .calculator-container {
+        padding: 2rem;
+    }
+    
+    header h1 {
+        font-size: 2.25rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .results-highlight {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .calculator-container {
+        padding: 2rem;
+        margin: 1.5rem 0;
+        border-radius: var(--border-radius-sm);
+    }
+    
+    .highlight-box {
+        padding: 2rem 1.5rem;
+    }
+    
+    .highlight-box h3 {
+        font-size: 0.85rem;
+    }
+    
+    .highlight-box p {
+        font-size: 1.1rem;
+    }
+    
+    .educational-content {
+        padding: 2rem;
+        margin-top: 2.5rem;
+    }
+    
+    .form-control, .form-select {
+        padding: 1rem 1.25rem;
+    }
+    
+    .input-group-text {
+        padding: 1rem 1.25rem;
+    }
+    
+    .input-section h2 {
+        font-size: 1.75rem;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    header {
+        padding: 2rem 1rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 1.75rem 1rem;
+    }
+    
+    header h1 {
+        font-size: 1.75rem;
+    }
+    
+    .nav-tabs .nav-link {
+        padding: 0.625rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .calculator-container {
+        padding: 1.5rem;
+    }
+    
+    .adsense-placeholder {
+        padding: 1.5rem;
+        font-size: 0.95rem;
+    }
+    
+    .highlight-box {
+        padding: 1.5rem 1.25rem;
+    }
+    
+    .input-section h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+    
+    .highlight-box:hover {
+        transform: none !important;
+    }
+    
+    .btn-primary:hover {
+        transform: none !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --border-color: #000000;
+        --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .form-control {
+        border-width: 3px;
+    }
+    
+    .btn-primary {
+        border: 2px solid #000000;
+    }
+}
+
+/* Print styles */
+@media print {
+    header {
+        background: white !important;
+        color: black !important;
+        box-shadow: none !important;
+    }
+    
+    .nav-tabs {
+        display: none;
+    }
+    
+    .calculator-container {
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+    
+    .adsense-placeholder {
+        display: none;
+    }
+    
+    .btn {
+        display: none;
+    }
+}
+
