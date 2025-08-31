@@ -29,9 +29,12 @@ document.getElementById('fire-form').addEventListener('submit', function(e) {
         }
     }
 
+    const fireAge = yearsToFire > 0 ? currentAge + yearsToFire : currentAge;
+
     document.getElementById('fire-years-to-fire').textContent = yearsToFire > 0 ? yearsToFire.toFixed(1) : 'Already FIREd!';
     document.getElementById('fire-number').textContent = formatCurrency(fireNumber);
     document.getElementById('fire-savings-rate').textContent = `${savingsRate.toFixed(1)}%`;
+    document.getElementById('fire-age').textContent = yearsToFire > 0 ? fireAge.toFixed(0) : 'Now';
 
     createGrowthChart(labels, data, 'fire-chart');
 
