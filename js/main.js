@@ -176,4 +176,86 @@ document.addEventListener('DOMContentLoaded', () => {
             window.scrollTo(0, originalScrollY);
         });
     });
+
+    // Lazy-load AdSense ad units using IntersectionObserver
+    // Targets elements with class 'lazy-ad' and a data-ad-slot attribute
+    (function setupLazyAds() {
+        const lazyAds = document.querySelectorAll('.lazy-ad[data-ad-slot]');
+        if (!lazyAds || lazyAds.length === 0) return;
+
+        const injectAd = (container) => {
+            if (!container || container.dataset.adInjected === '1') return;
+            const slot = container.getAttribute('data-ad-slot');
+            const client = 'ca-pub-1882981188824223';
+
+            // Build ins element
+            const ins = document.createElement('ins');
+            ins.className = 'adsbygoogle';
+            ins.style.display = 'block';
+            ins.setAttribute('data-ad-client', client);
+            ins.setAttribute('data-ad-slot', slot);
+            ins.setAttribute('data-ad-format', 'auto');
+            ins.setAttribute('data-full-width-responsive', 'true');
+
+            container.appendChild(ins);
+            // mark injected so we don't double inject
+            container.dataset.adInjected = '1';
+
+            // Ask adsbygoogle to render if available; if not, attempt to load the loader script dynamically
+            try {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            } catch (e) {
+                // adsbygoogle not present. Try to append loader script and render after it's ready.
+                ensureAdsLoader().then(() => {
+                    try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (_) { /* still unavailable */ }
+                }).catch(() => {
+                    // loader could not be appended or blocked; nothing more we can do here.
+                });
+            }
+        };
+
+        const options = {
+            root: null,
+            rootMargin: '300px 0px', // start loading when 300px near viewport
+            threshold: 0.01
+        };
+
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    injectAd(entry.target);
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, options);
+
+        lazyAds.forEach(el => {
+            observer.observe(el);
+        });
+    })();
+
+    // Ensure the adsbygoogle loader script is appended if missing. Returns a promise that resolves when loaded.
+    function ensureAdsLoader() {
+        return new Promise((resolve, reject) => {
+            if (window.adsbygoogle) return resolve();
+
+            // Check if there's already a loader script tag referencing pagead2.googlesyndication
+            const existing = Array.from(document.getElementsByTagName('script')).find(s => s.src && s.src.indexOf('pagead2.googlesyndication.com/pagead/js/adsbygoogle.js') !== -1);
+            if (existing) {
+                // wait for it to load if not yet
+                if (existing.getAttribute('data-loaded') === '1' || existing.readyState === 'complete') return resolve();
+                existing.addEventListener('load', () => resolve());
+                existing.addEventListener('error', () => reject());
+                return;
+            }
+
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1882981188824223';
+            script.crossOrigin = 'anonymous';
+            script.onload = function () { script.setAttribute('data-loaded', '1'); resolve(); };
+            script.onerror = function () { reject(); };
+            document.head.appendChild(script);
+        });
+    }
 });

@@ -7,10 +7,26 @@
     <title>Free Investment Calculators | SIP, Lumpsum, SWP, FIRE</title>
     <meta name="description" content="Free financial calculators for investment planning. Calculate SIP, Lumpsum, SWP, FIRE, and more to plan your investments and achieve your financial goals.">
     <meta name="keywords" content="financial calculator, investment calculator, sip calculator, lumpsum calculator, swp calculator, fire calculator, retirement calculator, savings plan calculator">
-    <meta property="og:title" content="Free Financial Calculators | SIP, Lumpsum, SWP, FIRE">
+    <link rel="canonical" href="https://mymoney.dpdns.org/">
+    <meta property="og:title" content="Free Investment Calculators | SIP, Lumpsum, SWP, FIRE">
     <meta property="og:description" content="Comprehensive suite of free financial calculators for investors. Calculate SIP, Lumpsum, SWP, FIRE, and more to plan your investments and achieve your financial goals.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mymoney.dpdns.org">
+    <meta property="og:url" content="https://mymoney.dpdns.org/">
+    <meta property="og:site_name" content="InvestCalc">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Free Investment Calculators | SIP, Lumpsum, SWP, FIRE">
+    <meta name="twitter:description" content="Plan your investments with SIP, Lumpsum, SWP, FIRE and other free calculators on InvestCalc.">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "InvestCalc",
+        "operatingSystem": "Web",
+        "applicationCategory": "FinanceApplication",
+        "url": "https://mymoney.dpdns.org/",
+        "description": "Free financial calculators for planning SIP, Lumpsum, SWP, FIRE, and other investment strategies."
+    }
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
@@ -26,6 +42,13 @@
     </script>
 </head>
 <body>
+    <!--
+        Ad Slot Mapping (maintain these IDs here):
+        - headerHero (moved to bottom): data-ad-slot="5690961949"
+        - contentInline (in-content / content-inline-ad): data-ad-slot="5314529758"
+        - sidebarVertical (sticky sidebar): data-ad-slot="1751716931"
+        NOTE: Other ad slots were removed intentionally to keep only the three requested slots.
+    -->
     <header class="container-fluid text-white text-center py-3 sticky-top">
         <h1><i class="fas fa-calculator me-3"></i>InvestCalc</h1>
         <p class="mb-3 fs-5 fw-light">Professional Financial Planning Tools for Smart Investors</p>
@@ -49,16 +72,7 @@
             </ul>
         </div>
     </header>
-    <!-- Placeholder: Header hero ad (commented). Replace data-ad-slot with your slot ID and remove comments to enable. -->
-    <div class="container mt-3" id="header-hero-ad">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-1882981188824223"
-             data-ad-slot="5690961949"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
+    <!-- Top area cleaned: header hero ad will be relocated to the bottom for a clean top area -->
 
     <main class="container mt-4">
         <div class="row">
@@ -162,15 +176,9 @@
                                     </ul>
                                 </div>
                             </div>
-                            <!-- Placeholder: In-content ad for SIP results (commented). Replace slot and uncomment to enable. -->
-                            <div class="my-3 text-center">
-                                <ins class="adsbygoogle"
-                                     style="display:block"
-                                     data-ad-client="ca-pub-1882981188824223"
-                                     data-ad-slot="5314529758"
-                                     data-ad-format="auto"
-                                     data-full-width-responsive="true"></ins>
-                                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                            <!-- Content-inline ad placeholder (lazy) for contentInline: 5314529758 -->
+                            <div class="my-3 text-center content-inline-ad lazy-ad" data-ad-slot="5314529758" aria-hidden="false">
+                                <!-- ad will be injected here by lazy-loader when in view -->
                             </div>
                         </div>
                     </div>
@@ -490,61 +498,30 @@
             </div>
             
             <div class="col-lg-3">
-                <!-- Placeholder: Sidebar ad (commented). Replace slot and uncomment to enable. -->
-                <div class="mb-4" id="sidebar-ad-placeholder">
-                    <ins class="adsbygoogle"
-                         style="display:block"
-                         data-ad-client="ca-pub-1882981188824223"
-                         data-ad-slot="1751716931"
-                         data-ad-format="auto"
-                         data-full-width-responsive="true"></ins>
-                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-                </div>
-                     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1882981188824223"
-                         crossorigin="anonymous"></script>
-                <!-- Vertical1 -->
-                <ins class="adsbygoogle"
-                     style="display:block"
-                         data-ad-client="ca-pub-1882981188824223"
-                     data-ad-slot="2872614228"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-                
-                <div class="mb-4"></div>
-                
-                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1882981188824223"
-                     crossorigin="anonymous"></script>
-                 <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-format="autorelaxed"
-                     data-ad-client="ca-pub-1882981188824223"
-                     data-ad-slot="6683866723"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
+                <!-- Sidebar: vertical grid ad (sticky). Placeholder will be populated lazily. -->
+                <aside class="mb-4 sidebar-ads" aria-label="Sidebar ads">
+                    <div class="adsense-sidebar lazy-ad" id="sidebar-vertical-ad" data-ad-slot="1751716931">
+                        <!-- ad will be injected here by lazy-loader when in view -->
+                    </div>
+                </aside>
             </div>
         </div>
         
-        <div class="row mt-5">
-            <div class="col-12">
-                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1882981188824223"
-                     crossorigin="anonymous"></script>
-                 <!-- Horizontal1 -->
-                 <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-1882981188824223"
-                     data-ad-slot="7820584923"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-                <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
-        </div>
+        <!-- Removed extra horizontal ad to keep only the requested three ad slots on the page -->
     </main>
+
+    <!-- Bottom full-width banner: headerHero (5690961949) -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <ins class="adsbygoogle bottom-banner-ad"
+                 style="display:block"
+                 data-ad-client="ca-pub-1882981188824223"
+                 data-ad-slot="5690961949"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+    </div>
 
     <footer class="text-center py-3 mt-4 border-top">
         <p class="mb-0 text-muted small">© 2025 InvestCalc - Smart financial planning tools for informed investment decisions.</p>

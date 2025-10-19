@@ -481,9 +481,30 @@ body.dark-mode .adsense-placeholder:hover {
     align-items: center;
     justify-content: center;
     font-size: 1rem;
+    /* Make sidebar ad sticky by default on larger viewports. JS-free sticky behavior. */
+    position: -webkit-sticky;
     position: sticky;
     top: 140px;
     font-weight: 500;
+}
+
+/* Clean top area when header hero ad is moved */
+#header-hero-ad {
+    display: none; /* moved to bottom for cleaner top */
+}
+
+.content-inline-ad {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Bottom full-width banner (headerHero moved to bottom) */
+.bottom-banner-ad {
+    width: 100%;
+    display: block;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 }
 
 .adsense-large {

@@ -1,0 +1,2 @@
+- [x] Restore <!DOCTYPE html> at the top of index.html
+- [x] Add canonical link, Open Graph, Twitter meta, and JSON-LD structured data in index.html head
